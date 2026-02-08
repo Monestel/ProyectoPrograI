@@ -1,0 +1,10 @@
+
+#ifndef PROYECTOPROGRAI_PROFESOR_H
+#define PROYECTOPROGRAI_PROFESOR_H
+
+
+class Profesor {
+};
+
+
+#endif //PROYECTOPROGRAI_PROFESOR_H
