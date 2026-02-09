@@ -17,4 +17,11 @@ add_executable(ProyectoPrograI main.cpp
         Curso.h
         NodoCurso.h
         ListaCursos.cpp
-        ListaCursos.h)
+        ListaCursos.h
+        NodoProfesor.h
+        ListaProfesores.cpp
+        ListaProfesores.h
+        Horario.cpp
+        Horario.h
+        SistemaUniversidad.cpp
+        SistemaUniversidad.h)
