@@ -9,4 +9,12 @@ add_executable(ProyectoPrograI main.cpp
         Estudiante.cpp
         Estudiante.h
         Profesor.cpp
-        Profesor.h)
+        Profesor.h
+        NodoEstudiante.h
+        ListaEstudiantes.cpp
+        ListaEstudiantes.h
+        Curso.cpp
+        Curso.h
+        NodoCurso.h
+        ListaCursos.cpp
+        ListaCursos.h)
