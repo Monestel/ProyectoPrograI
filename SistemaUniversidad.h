@@ -16,6 +16,12 @@ private:
 public:
     SistemaUniversidad();
     void mostrarSistema();
+    bool registrarProfesor(string id, string nombre);
+    bool registrarEstudiante(string id, string nombre);
+    bool registrarCurso(string codigo, string nombre, string idProfesor);
+    void menuSistema();
+    bool asignarCursoHorario(string codigoCurso, int dia, int hora);
+    void guardarDatos();
 };
 
 #endif //PROYECTOPROGRAI_SISTEMAUNIVERSIDAD_H

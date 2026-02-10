@@ -1,8 +1,8 @@
 
 #include "ListaEstudiantes.h"
-
+#include <fstream>
 #include <iostream>
-using namespace std;
+#include <sstream>
 
 ListaEstudiantes::ListaEstudiantes() {
     head = nullptr;
@@ -69,6 +69,42 @@ void ListaEstudiantes::mostrar() {
         cout << actual->dato->toString() << endl;
         actual = actual->siguiente;
     }
+}
+
+void ListaEstudiantes::guardarEnArchivo(string nombreArchivo) {
+    ofstream archivo(nombreArchivo);
+
+    NodoEstudiante* actual = head;
+    while (actual != nullptr) {
+        archivo << actual->dato->getId() << "," << actual->dato->getNombre() << endl;
+        actual = actual->siguiente;
+    }
+    archivo.close();
+}
+
+void ListaEstudiantes::cargarDesdeArchivo(string nombreArchivo) {
+    ifstream archivo(nombreArchivo);
+
+    if (!archivo.is_open())
+        return;
+
+    string linea;
+    while (getline(archivo, linea)) {
+        if (linea.empty())
+            continue;
+
+        stringstream ss(linea);
+        string id, nombre;
+        if (!getline(ss, id, ','))
+            continue;
+        if (!getline(ss, nombre))
+            continue;
+
+        Estudiante* e = new Estudiante(id, nombre);
+        if (!insertar(e))
+            delete e;
+    }
+    archivo.close();
 }
 
 

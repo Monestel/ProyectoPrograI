@@ -14,6 +14,8 @@ public:
     Profesor* buscar(string id);
     bool eliminar(string id);
     void mostrar();
+    void guardarEnArchivo(string nombreArchivo);
+    void cargarDesdeArchivo(string nombreArchivo);
 };
 
 #endif //PROYECTOPROGRAI_LISTAPROFESORES_H

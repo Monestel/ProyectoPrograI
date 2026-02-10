@@ -5,7 +5,7 @@ int main() {
 
     SistemaUniversidad sistemaU;
 
-    sistemaU.mostrarSistema();
-    
+    sistemaU.menuSistema();
+
     return 0;
 }

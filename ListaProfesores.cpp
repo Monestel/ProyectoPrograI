@@ -1,6 +1,8 @@
 
 #include "ListaProfesores.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 ListaProfesores::ListaProfesores() {
     head = nullptr;
@@ -66,4 +68,41 @@ void ListaProfesores::mostrar() {
     while (actual != nullptr) {
         std::cout << actual->dato->toString() << std::endl;
     }
+}
+
+void ListaProfesores::guardarEnArchivo(string nombreArchivo) {
+    ofstream archivo(nombreArchivo);
+
+    NodoProfesor* actual = head;
+    while (actual != nullptr) {
+        archivo << actual->dato->getId() << "," << actual->dato->getNombre() << endl;
+        actual = actual->siguiente;
+    }
+    archivo.close();
+}
+
+void ListaProfesores::cargarDesdeArchivo(string nombreArchivo) {
+    ifstream archivo(nombreArchivo);
+
+    if (!archivo.is_open())
+        return;
+
+    string linea;
+    while (getline(archivo, linea)) {
+        if (linea.empty())
+            continue;
+
+        stringstream ss(linea);
+        string id, nombre;
+        if (!getline(ss, id, ','))
+            continue;
+        if (!getline(ss, nombre))
+            continue;
+
+        Profesor* prof = new Profesor(id, nombre);
+
+        if (!insertar(prof))
+            delete prof;
+    }
+    archivo.close();
 }

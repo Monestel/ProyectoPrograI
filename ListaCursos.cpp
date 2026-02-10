@@ -1,8 +1,8 @@
 
 #include "ListaCursos.h"
 #include <iostream>
-using namespace std;
-
+#include <fstream>
+#include <sstream>
 
 ListaCursos::ListaCursos() {
     head = nullptr;
@@ -66,4 +66,46 @@ void ListaCursos::mostrar() {
     while (actual != nullptr) {
         cout << actual->dato->toString() << endl;
     }
+}
+
+void ListaCursos::guardarEnArchivo(string nombreArchivo) {
+    ofstream archivo(nombreArchivo);
+
+    NodoCurso* actual = head;
+    while (actual != nullptr) {
+        archivo << actual->dato->getCodigo() << "," << actual->dato->getNombre() << ","
+        << actual->dato->getProfesor()->getId() << endl;
+        actual = actual->siguiente;
+    }
+    archivo.close();
+}
+
+void ListaCursos::cargarDesdeArchivo(string nombreArchivo, ListaProfesores& profesores) {
+    ifstream archivo(nombreArchivo);
+    if (!archivo.is_open())
+        return;
+
+    string linea;
+    while (getline(archivo, linea)) {
+        if (linea.empty())
+            continue;
+
+        stringstream ss(linea);
+        string codigo, nombre, idProfesor;
+        if (!getline(ss, codigo, ','))
+            continue;
+        if (!getline(ss, nombre, ','))
+            continue;
+        if (!getline(ss, idProfesor))
+            continue;
+
+        Profesor* prof = profesores.buscar(idProfesor);
+        if (prof == nullptr)
+            continue;
+
+        Curso* curso = new Curso(codigo, nombre, prof);
+        if (!insertar(curso))
+            delete curso;
+    }
+    archivo.close();
 }
