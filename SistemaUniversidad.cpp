@@ -68,10 +68,18 @@ void SistemaUniversidad::menuSistema() {
         ss << "2. Registrar estudiante\n";
         ss << "3. Registrar curso\n";
         ss << "4. Mostrar todo\n";
+        ss << "5. Asignar un curso\n";
+        ss << "6. Mostrar horario\n";
         ss << "0. Salir\n";
         ss << "Opcion: ";
-        cin >> opcion;
-        cin.ignore();
+        cout << ss.str();
+        if (!(cin >> opcion)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            opcion = -1;
+        } else {
+            cin.ignore();
+        }
 
         if (opcion == 1) {
             string id, nombre;
@@ -117,20 +125,26 @@ void SistemaUniversidad::menuSistema() {
             int dia, hora;
             cout << "Codigo curso: ";
             getline(cin, codigo);
-            cout << "Dia (0 = Lunes ...): ";
+            cout << "Dia (1 = Lunes, 2 = Martes, 3 = Miercoles, 4 = Jueves, 5 = Viernes): ";
             cin >> dia;
-            cout << "Hora (0 = primer bloque ...): ";
+            cout << "Hora (1 = primer bloque, 2 = segundo bloque, 3 = tercer bloque, "
+                    "4 = cuarto bloque, 5 = quinto bloque, 6 = sexto bloque): ";
             cin >> hora;
             cin.ignore();
+            dia--;
+            hora--;
 
             if (!asignarCursoHorario(codigo, dia, hora))
                 cout << "No se pudo asignar.\n";
         }
 
+        else if (opcion == 6) {
+            horario.mostrar();
+        }
+
         else if (opcion == 0) {
             guardarDatos();
         }
-
 
     } while (opcion != 0);
 

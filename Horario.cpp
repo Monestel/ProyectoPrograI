@@ -51,9 +51,10 @@ bool Horario::asignarCurso(int dia, int hora, Curso* curso) {
 
 void Horario::mostrar() {
     cout << "        ";
-    for (int h = 0; h < horas; h++)
+    for (int h = 0; h < horas; h++) {
         cout << nombresHoras[h] << "   ";
-        cout << "\n";
+    }
+    cout << "\n";
 
     for (int i = 0; i < dias; i++) {
         cout << nombresDias[i] << "   ";
