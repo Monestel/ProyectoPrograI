@@ -22,6 +22,7 @@ public:
     void menuSistema();
     bool asignarCursoHorario(string codigoCurso, int dia, int hora);
     void guardarDatos();
+    void generarArchivosPrueba();
 };
 
 #endif //PROYECTOPROGRAI_SISTEMAUNIVERSIDAD_H

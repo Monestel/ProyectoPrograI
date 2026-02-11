@@ -1,4 +1,4 @@
-#include <iostream>
+
 #include "SistemaUniversidad.h"
 
 int main() {

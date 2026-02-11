@@ -2,6 +2,7 @@
 #include "SistemaUniversidad.h"
 #include <iostream>
 #include <sstream>
+#include <fstream>
 
 SistemaUniversidad::SistemaUniversidad()
     : horario(5,6) {
@@ -177,3 +178,33 @@ void SistemaUniversidad::guardarDatos() {
     cursos.guardarEnArchivo("cursos.txt");
     horario.guardarEnArchivo("horario.txt");
 }
+
+void SistemaUniversidad::generarArchivosPrueba() {
+    ofstream est("estudiantes.txt");
+    est << "E001, David Monestel\n";
+    est << "E002, Keilor Baltodano\n";
+    est << "E003, Luis Diego Alvarado\n";
+    est.close();
+
+    ofstream prof("profesores.txt");
+    prof << "P01, Oscar Benavides\n";
+    prof << "P02, Francisco Benavides\n";
+    prof << "P03, Jonathan Morales\n";
+    prof.close();
+
+    ofstream cursosF("cursos.txt");
+    cursosF << "EIF200, Fundamentos de Informatica, P01\n";
+    cursosF << "MAT030, Matematica para Informatica, P02\n";
+    cursosF << "EIF201, Programacion I, P03\n";
+    cursosF.close();
+
+    ofstream hor("horario.txt");
+    hor << "0, 0, EIF200\n";
+    hor << "3, 0, EIF200\n";
+    hor << "1, 5, MAT030\n";
+    hor << "4, 5, MAT030\n";
+    hor << "2, 2, EIF201\n";
+    hor.close();
+}
+
+
