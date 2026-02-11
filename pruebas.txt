@@ -1,0 +1,52 @@
+DOCUMENTO DE PRUEBAS MANUALES
+Sistema de gestion academica universitaria
+
+Pruebas realizadas:
+
+1. Registro de profesores con datos validos.
+Resultado: Profesor registrado correctamente.
+
+2. Registro de profesor duplicado.
+Resultado: Sistema rechazo el registro.
+
+3. Registro de estudiantes.
+Resultado: Estudiantes registrados correctamente.
+
+4. Registro de cursos con profesor valido.
+Resultado: Curso creado correctamente.
+
+5. Registro de curso con profesor inexistente.
+Resultado: Sistema rechazo el curso.
+
+6. Insercion en listas vacias.
+Resultado: Elementos insertados correctamente.
+
+7. Busqueda de elemento inexistente.
+Resultado: Sistema indico que no existe.
+
+8. Eliminacion de primer nodo.
+Resultado: Eliminacion correcta.
+
+9. Eliminacion de ultimo nodo.
+Resultado: Eliminacion correcta.
+
+10. Eliminacion de nodo intermedio.
+Resultado: Eliminacion correcta.
+
+11. Asignacion de curso en horario valido.
+Resultado: Curso asignado correctamente.
+
+12. Intento de asignar curso en horario ocupado.
+Resultado: Sistema rechazo la operacion.
+
+13. Carga del sistema con archivos vacios.
+Resultado: Sistema inicia sin fallar.
+
+14. Carga con archivo inexistente.
+Resultado: Sistema no falla y continua vacio.
+
+15. Guardado y recarga de informacion.
+Resultado: Datos se guardan y cargan correctamente.
+
+Conclusion:
+Todas las pruebas fueron ejecutadas sin que el sistema fallara.
