@@ -28,11 +28,10 @@ Horario::Horario(int dias, int horas) {
 Horario::~Horario() {
     for (int i = 0; i < dias; i++) {
         delete[] matriz[i];
+    }
         delete[] matriz;
-
         delete[] nombresDias;
         delete[] nombresHoras;
-    }
 }
 
 bool Horario::asignarCurso(int dia, int hora, Curso* curso) {
@@ -84,7 +83,7 @@ void Horario::guardarEnArchivo(string nombreArchivo) {
 
 void Horario::cargarDesdeArchivo(string nombreArchivo, ListaCursos &cursos) {
     ifstream archivo(nombreArchivo);
-    if (archivo.is_open())
+    if (!archivo.is_open())
         return;
 
     string linea;
@@ -108,7 +107,7 @@ void Horario::cargarDesdeArchivo(string nombreArchivo, ListaCursos &cursos) {
         sh >> hora;
 
         Curso* curso = cursos.buscar(codigo);
-        if (curso == nullptr)
+        if (curso != nullptr)
             asignarCurso(dia, hora, curso);
     }
     archivo.close();

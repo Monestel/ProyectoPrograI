@@ -65,6 +65,7 @@ void ListaCursos::mostrar() {
 
     while (actual != nullptr) {
         cout << actual->dato->toString() << endl;
+        actual = actual->siguiente;
     }
 }
 

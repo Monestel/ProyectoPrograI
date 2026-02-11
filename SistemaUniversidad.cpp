@@ -87,9 +87,10 @@ void SistemaUniversidad::menuSistema() {
             getline(cin, id);
             cout << "Nombre: ";
             getline(cin, nombre);
-
-            if (!registrarProfesor(id, nombre))
-                cout << "No se pudo registrar.\n";
+            if (id.empty() || nombre.empty()) {
+                cout << "Error: ID y nombre no pueden estar vacios.\n";
+            }else if (!registrarProfesor(id, nombre))
+                cout << "No se pudo registrar(ya existe).\n";
         }
 
         else if (opcion == 2) {
@@ -98,9 +99,10 @@ void SistemaUniversidad::menuSistema() {
             getline(cin, id);
             cout << "Nombre: ";
             getline(cin, nombre);
-
-            if (!registrarEstudiante(id, nombre))
-                cout << "No se pudo registrar.\n";
+            if (id.empty() || nombre.empty()) {
+                cout << "Error: codigo, nombre y profesor no pueden estar vacios.\n";
+            }else if (!registrarEstudiante(id, nombre))
+                cout << "No se pudo registrar(ya existe).\n";
         }
 
         else if (opcion == 3) {
@@ -111,8 +113,9 @@ void SistemaUniversidad::menuSistema() {
             getline(cin, nom);
             cout << "ID Profesor: ";
             getline(cin, prof);
-
-            if (!registrarCurso(cod, nom, prof))
+            if (cod.empty() || nom.empty() || prof.empty()) {
+                cout << "Error: ID y nombre no pueden estar vacios.\n";
+            }else if (!registrarCurso(cod, nom, prof))
                 cout << "Curso invalido.\n";
         }
 
@@ -126,10 +129,20 @@ void SistemaUniversidad::menuSistema() {
             cout << "Codigo curso: ";
             getline(cin, codigo);
             cout << "Dia (1 = Lunes, 2 = Martes, 3 = Miercoles, 4 = Jueves, 5 = Viernes): ";
-            cin >> dia;
+            if (!(cin >> dia)) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Eror: ingrese un numero.\n";
+                continue;
+            }
             cout << "Hora (1 = primer bloque, 2 = segundo bloque, 3 = tercer bloque, "
                     "4 = cuarto bloque, 5 = quinto bloque, 6 = sexto bloque): ";
-            cin >> hora;
+            if (!(cin >> hora)) {
+            cin.clear();
+            cin.ignore(1000, '\n');
+            cout << "Error, ingrese un numero";
+            continue;
+            }
             cin.ignore();
             dia--;
             hora--;

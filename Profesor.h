@@ -7,7 +7,7 @@ class Profesor : public Persona {
 public:
 
     Profesor(string id, string nombre);
-    string toString();
+    string toString() override;
 
 };
 

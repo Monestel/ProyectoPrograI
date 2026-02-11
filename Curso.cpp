@@ -20,6 +20,9 @@ Profesor* Curso::getProfesor() {
 }
 
 string Curso::toString() {
+    if (profesor == nullptr)
+        return codigo + " - " + nombre + " | Profesor: (sin asignar)";
+
     return codigo + " - " + nombre +
             " | Profesor: " + profesor->getNombre();
 }

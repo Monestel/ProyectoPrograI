@@ -66,7 +66,8 @@ void ListaProfesores::mostrar() {
     NodoProfesor* actual = head;
 
     while (actual != nullptr) {
-        std::cout << actual->dato->toString() << std::endl;
+        cout << actual->dato->toString() << endl;
+        actual = actual->siguiente;
     }
 }
 

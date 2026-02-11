@@ -6,7 +6,7 @@
 class Estudiante : public Persona {
 public:
     Estudiante(string id, string nombre);
-    string toString();
+    string toString() override;
 
 };
 
