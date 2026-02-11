@@ -24,4 +24,5 @@ add_executable(ProyectoPrograI main.cpp
         Horario.cpp
         Horario.h
         SistemaUniversidad.cpp
-        SistemaUniversidad.h)
+        SistemaUniversidad.h
+        Administrativo.h)
