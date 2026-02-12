@@ -184,18 +184,21 @@ void SistemaUniversidad::generarArchivosPrueba() {
     est << "E001,David Monestel\n";
     est << "E002,Keilor Baltodano\n";
     est << "E003,Luis Diego Alvarado\n";
+    est << "E004,Daniel Monestel\n";
     est.close();
 
     ofstream prof("profesores.txt");
     prof << "P01,Oscar Benavides\n";
     prof << "P02,Francisco Benavides\n";
     prof << "P03,Jonathan Morales\n";
+    prof << "P04,Vanessa Sosa\n";
     prof.close();
 
     ofstream cursosF("cursos.txt");
     cursosF << "EIF200,Fundamentos de Informatica,P01\n";
     cursosF << "MAT030,Matematica para Informatica,P02\n";
     cursosF << "EIF201,Programacion I,P03\n";
+    cursosF << "EGA110,Apreciacion Artistica,P04";
     cursosF.close();
 
     ofstream hor("horario.txt");
@@ -204,6 +207,7 @@ void SistemaUniversidad::generarArchivosPrueba() {
     hor << "1, 5, MAT030\n";
     hor << "4, 5, MAT030\n";
     hor << "2, 2, EIF201\n";
+    hor << "2, 5, EGA110\n";
     hor.close();
 }
 
