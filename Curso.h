@@ -14,6 +14,7 @@ public:
     string getNombre();
     Profesor* getProfesor();
     string toString();
+    string getProfesorId();
 
 };
 

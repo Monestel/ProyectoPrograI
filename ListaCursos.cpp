@@ -75,7 +75,7 @@ void ListaCursos::guardarEnArchivo(string nombreArchivo) {
     NodoCurso* actual = head;
     while (actual != nullptr) {
         archivo << actual->dato->getCodigo() << "," << actual->dato->getNombre() << ","
-        << actual->dato->getProfesor()->getId() << endl;
+        << actual->dato->getProfesorId() << endl;
         actual = actual->siguiente;
     }
     archivo.close();

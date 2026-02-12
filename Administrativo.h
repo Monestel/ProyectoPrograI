@@ -10,7 +10,7 @@ public:
     }
 
     string toString() override {
-        return "Administrativo: " + " - " + nombre;
+        return "Administrativo: " + id + " - " + nombre;
     }
 };
 

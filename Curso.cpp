@@ -26,3 +26,9 @@ string Curso::toString() {
     return codigo + " - " + nombre +
             " | Profesor: " + profesor->getNombre();
 }
+
+string Curso::getProfesorId() {
+    if (profesor == nullptr)
+        return "";
+    return profesor->getId();
+}

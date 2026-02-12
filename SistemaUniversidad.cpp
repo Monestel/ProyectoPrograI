@@ -101,7 +101,7 @@ void SistemaUniversidad::menuSistema() {
             cout << "Nombre: ";
             getline(cin, nombre);
             if (id.empty() || nombre.empty()) {
-                cout << "Error: codigo, nombre y profesor no pueden estar vacios.\n";
+                cout << "Error: ID y nombre no pueden estar vacios.\n";
             }else if (!registrarEstudiante(id, nombre))
                 cout << "No se pudo registrar(ya existe).\n";
         }
@@ -133,7 +133,7 @@ void SistemaUniversidad::menuSistema() {
             if (!(cin >> dia)) {
                 cin.clear();
                 cin.ignore(1000, '\n');
-                cout << "Eror: ingrese un numero.\n";
+                cout << "Error: ingrese un numero.\n";
                 continue;
             }
             cout << "Hora (1 = primer bloque, 2 = segundo bloque, 3 = tercer bloque, "
@@ -181,21 +181,21 @@ void SistemaUniversidad::guardarDatos() {
 
 void SistemaUniversidad::generarArchivosPrueba() {
     ofstream est("estudiantes.txt");
-    est << "E001, David Monestel\n";
-    est << "E002, Keilor Baltodano\n";
-    est << "E003, Luis Diego Alvarado\n";
+    est << "E001,David Monestel\n";
+    est << "E002,Keilor Baltodano\n";
+    est << "E003,Luis Diego Alvarado\n";
     est.close();
 
     ofstream prof("profesores.txt");
-    prof << "P01, Oscar Benavides\n";
-    prof << "P02, Francisco Benavides\n";
-    prof << "P03, Jonathan Morales\n";
+    prof << "P01,Oscar Benavides\n";
+    prof << "P02,Francisco Benavides\n";
+    prof << "P03,Jonathan Morales\n";
     prof.close();
 
     ofstream cursosF("cursos.txt");
-    cursosF << "EIF200, Fundamentos de Informatica, P01\n";
-    cursosF << "MAT030, Matematica para Informatica, P02\n";
-    cursosF << "EIF201, Programacion I, P03\n";
+    cursosF << "EIF200,Fundamentos de Informatica,P01\n";
+    cursosF << "MAT030,Matematica para Informatica,P02\n";
+    cursosF << "EIF201,Programacion I,P03\n";
     cursosF.close();
 
     ofstream hor("horario.txt");
